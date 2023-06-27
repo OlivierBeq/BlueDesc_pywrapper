@@ -40,10 +40,15 @@ bluedesc = BlueDesc()
 print(bluedesc.calculate(mols))
 ```
 
-The above calculates 174 molecular descriptors (33 1D, 85 2D and 56 3D).
-:warning: Molecules are required to have conformers for descriptors to be calculated. 
+The above calculates 174 molecular descriptors (33 1D, 85 2D and 56 3D).<br/>
+:warning: Molecules are required to have conformers for descriptors to be calculated.<br/>
+:warning: BlueDesc skips molecules it cannot parse internally, a warning is given when that is the case.
+The following command is recommended, should this occur, to prevent the unalignment of input and output indices.
 
+```python
+bluedesc.calculate(mols, chunksize=1, njobs=-1)
 ```
+
 ## Documentation
 
 ```python

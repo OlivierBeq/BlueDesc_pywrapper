@@ -4,21 +4,22 @@
 
 from __future__ import annotations
 
-import os
+import json
+import more_itertools
 import multiprocessing
-import warnings
+import numpy as np
+import os
+import pandas as pd
 import subprocess
+import warnings
 from copy import deepcopy
 from typing import Iterable, List, Optional
 
-import more_itertools
-import numpy as np
-import pandas as pd
+from BlueDesc import BLUEDESC_EXEC_PATH
 from bounded_pool_executor import BoundedProcessPoolExecutor
 from rdkit import Chem
 from rdkit.rdBase import BlockLogs
 from scipy.io import arff
-from BlueDesc import BLUEDESC_EXEC_PATH
 
 from .utils import install_java, mktempfile, needsHs
 
@@ -48,6 +49,8 @@ class BlueDesc:
         """
         if show_banner:
             self._show_banner()
+        if njobs < 0:
+            njobs = os.cpu_count() - njobs + 1
         # Parallelize should need be
         if njobs > 1:
             with BoundedProcessPoolExecutor(max_workers=njobs) as worker:
@@ -89,6 +92,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
         # 2) Create temp SD v2k file
         self._tmp_sd = mktempfile('molecules_v3k.sd')
         self._skipped = []
+        self.n = 0
         try:
             block = BlockLogs()
             writer = Chem.SDWriter(self._tmp_sd)
@@ -108,6 +112,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                     writer.write(mol)
                 else:
                     self._skipped.append(i)
+                self.n += 1
             writer.close()
             del block
         except ValueError as e:
@@ -118,7 +123,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
             raise e from None
         # 3) Create command
         java_path = install_java()
-        command = f"{java_path} -jar {self._jarfile} -f {self._tmp_sd} -l \'?\'" #  -Djava.awt.headless=true
+        command = f"{java_path} -jar {self._jarfile} -f {self._tmp_sd} -l \'?\'"
         return command
 
     def _cleanup(self) -> None:
@@ -136,15 +141,25 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
         process = subprocess.run(command.split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if process.returncode == 0:
             self._out = f'{self._tmp_sd}.oddescriptors.arff'
-            values = arff.loadarff(self._out)
+            try:
+                values = arff.loadarff(self._out)
+                values = (pd.DataFrame(values[0])
+                          .drop("'?'", axis=1)
+                          .rename(columns=lambda x: x.replace('joelib2.feature.types.count.', ''))
+                          .rename(columns=lambda x: x.replace('joelib2.feature.types.', ''))
+                          )
+                if values.shape[0] != self.n:
+                    warnings.warn('Some molecules were skipped by BlueDesc')
+            except:
+                values = np.zeros((self.n, 174))
+                with open(os.path.abspath(os.path.join(__file__, os.pardir, 'desc_names.json'))) as fh:
+                    names = json.load(fh)
+                with open(os.path.abspath(os.path.join(__file__, os.pardir, 'dtypes.json'))) as fh:
+                    dtypes = json.load(fh)
+                values = pd.DataFrame(values, columns=names).astype(dtypes)
         else:
             self._cleanup()
             raise RuntimeError('BlueDesc did not succeed to run properly.')
-        values = (pd.DataFrame(values[0])
-                  .drop("'?'", axis=1)
-                  .rename(columns=lambda x: x.replace('joelib2.feature.types.count.', ''))
-                  .rename(columns=lambda x: x.replace('joelib2.feature.types.', ''))
-                  )
         return values
 
     def _calculate(self, mols: List[Chem.Mol]) -> pd.DataFrame:
