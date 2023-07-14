@@ -31,8 +31,12 @@ class BlueDesc:
     # Path to the JAR file
     _jarfile = BLUEDESC_EXEC_PATH
 
-    def __init__(self):
-        """Instantiate a wrapper to calculate BlueDesc molecular descriptors."""
+    def __init__(self, ignore_3D: bool = True):
+        """Instantiate a wrapper to calculate BlueDesc molecular descriptors.
+
+        :param ignore_3D: whether to include 3D molecular descriptors
+        """
+        self.include_3D = not ignore_3D
         # Ensure the jar file exists
         if not os.path.isfile(self._jarfile):
             raise IOError('The required BlueDesc JAR file is not present. Reinstall BlueDesc.')
@@ -106,9 +110,10 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                     if needsHs(mol):
                         warnings.warn('Molecule lacks hydrogen atoms: this might affect the value of calculated descriptors')
                     # Are molecules 3D
-                    confs = list(mol.GetConformers())
-                    if not (len(confs) > 0 and confs[-1].Is3D()):
-                        raise ValueError('Cannot calculate the 3D descriptors of a conformer-less molecule')
+                    if self.include_3D:
+                        confs = list(mol.GetConformers())
+                        if not (len(confs) > 0 and confs[-1].Is3D()):
+                            raise ValueError('Cannot calculate the 3D descriptors of a conformer-less molecule')
                     writer.write(mol)
                 else:
                     self._skipped.append(i)
@@ -151,12 +156,17 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                 if values.shape[0] != self.n:
                     warnings.warn('Some molecules were skipped by BlueDesc')
             except:
-                values = np.zeros((self.n, 174))
-                with open(os.path.abspath(os.path.join(__file__, os.pardir, 'desc_names.json'))) as fh:
-                    names = json.load(fh)
+                details = self.get_details()
+                values = np.zeros((self.n, details.shape[0]))
                 with open(os.path.abspath(os.path.join(__file__, os.pardir, 'dtypes.json'))) as fh:
                     dtypes = json.load(fh)
-                values = pd.DataFrame(values, columns=names).astype(dtypes)
+                values = pd.DataFrame(values, columns=details.Name.tolist()).astype(dtypes)
+            # If only 2D, remove 3D descriptors
+            if not self.include_3D:
+                # Get 3D descriptor names to remove
+                descs_3D = self.get_details()
+                descs_3D = descs_3D[descs_3D.Dimensions == '3D']
+                values = values.drop(columns=descs_3D.Name.tolist())
         else:
             self._cleanup()
             raise RuntimeError('BlueDesc did not succeed to run properly.')
@@ -198,3 +208,17 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
         # Run copy
         result = bluedesc.calculate(mols, show_banner=False, njobs=1)
         return result
+
+    @staticmethod
+    def get_details(desc_name: Optional[str] = None):
+        """Obtain details about either one or all descriptors.
+
+        :param desc_name: the name of the descriptor to obtain details about (default: None).
+        If None, returns details about all descriptors.
+        """
+        details = pd.read_json(os.path.abspath(os.path.join(__file__, os.pardir, 'descs.json')), orient='index')
+        if desc_name is not None:
+            if desc_name not in details.Name.tolist():
+                raise ValueError(f'descriptor name {desc_name} is not available')
+            details = details[details.Name == desc_name]
+        return details

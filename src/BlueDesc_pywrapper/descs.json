@@ -1,0 +1,1046 @@
+{
+    "0":{
+        "Name":"AcidicGroups",
+        "Description":"Number of acidic groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "1":{
+        "Name":"AliphaticOHGroups",
+        "Description":"Number of aliphatic hydroxy groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "2":{
+        "Name":"AromaticBonds",
+        "Description":"Number of aromatic bonds.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "3":{
+        "Name":"AromaticOHGroups",
+        "Description":"Number of aromatic hydroxy groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "4":{
+        "Name":"BasicGroups",
+        "Description":"Number of basic groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "5":{
+        "Name":"HBA1",
+        "Description":"Number of Hydrogen Bond Acceptors (HBA),HBA1.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "6":{
+        "Name":"HBA2",
+        "Description":"Number of Hydrogen Bond Acceptors (HBA),HBA2.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "7":{
+        "Name":"HBD1",
+        "Description":"Number of Hydrogen Bond Donors (HBD),HBD1.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "8":{
+        "Name":"HBD2",
+        "Description":"Number of Hydrogen Bond Donors (HBD),HBD2.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "9":{
+        "Name":"HeavyBonds",
+        "Description":"Number of heavy bonds.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "10":{
+        "Name":"HeteroCycles",
+        "Description":"Number of hetero cycles.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "11":{
+        "Name":"HydrophobicGroups",
+        "Description":"Number of hydrophobic groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "12":{
+        "Name":"NO2Groups",
+        "Description":"Number of NO2 groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "13":{
+        "Name":"NumberOfAtoms",
+        "Description":"Number of atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "14":{
+        "Name":"NumberOfB",
+        "Description":"Number of bor atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "15":{
+        "Name":"NumberOfBonds",
+        "Description":"Number of bonds.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "16":{
+        "Name":"NumberOfBr",
+        "Description":"Number of brom atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "17":{
+        "Name":"NumberOfC",
+        "Description":"Number of carbon atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "18":{
+        "Name":"NumberOfCl",
+        "Description":"Number of chlor atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "19":{
+        "Name":"NumberOfF",
+        "Description":"Number of fluor atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "20":{
+        "Name":"NumberOfHal",
+        "Description":"Number of halogen atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "21":{
+        "Name":"NumberOfI",
+        "Description":"Number of iod atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "22":{
+        "Name":"NumberOfN",
+        "Description":"Number of nitrogen atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "23":{
+        "Name":"NumberOfO",
+        "Description":"Number of oxygen atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "24":{
+        "Name":"NumberOfP",
+        "Description":"Number of phospor atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "25":{
+        "Name":"NumberOfS",
+        "Description":"Number of sulfur atoms.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "26":{
+        "Name":"OSOGroups",
+        "Description":"Number of OSO groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "27":{
+        "Name":"SO2Groups",
+        "Description":"Number of SO2 groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "28":{
+        "Name":"SOGroups",
+        "Description":"Number of SO groups.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "29":{
+        "Name":"nAtomLAC",
+        "Description":"The number of atoms in the longest aliphatic chain.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "30":{
+        "Name":"nAtomLC",
+        "Description":"The number of atoms in the largest chain.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "31":{
+        "Name":"nAtomP",
+        "Description":"\u00a0The number of atoms in the largest pi system.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "32":{
+        "Name":"FractionRotatableBonds",
+        "Description":"Fraction of rotatable bonds.",
+        "Type":"Constitutional descriptors",
+        "Dimensions":"1D"
+    },
+    "33":{
+        "Name":"ATSc1",
+        "Description":"\u00a0ATS autocorrelation descriptor, where the weight equal to the charges.",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "34":{
+        "Name":"ATSc2",
+        "Description":"\u00a0ATS autocorrelation descriptor, where the weight equal to the charges.",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "35":{
+        "Name":"ATSc3",
+        "Description":"\u00a0ATS autocorrelation descriptor, where the weight equal to the charges.",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "36":{
+        "Name":"ATSc4",
+        "Description":"\u00a0ATS autocorrelation descriptor, where the weight equal to the charges.",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "37":{
+        "Name":"ATSc5",
+        "Description":"\u00a0ATS autocorrelation descriptor, where the weight equal to the charges.",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "38":{
+        "Name":"ATSm1",
+        "Description":"ATS autocorrelation descriptor, where the weight equal to the scaled atomic mass [Moreau G. and Broto P.,\u00a0The autocorrelation of a topological structure: A new molecular descriptor, Nouveau Journal de Chimie,\u00a01980, ?:359-360].",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "39":{
+        "Name":"ATSm2",
+        "Description":"ATS autocorrelation descriptor, where the weight equal to the scaled atomic mass [Moreau G. and Broto P.,\u00a0The autocorrelation of a topological structure: A new molecular descriptor, Nouveau Journal de Chimie,\u00a01980, ?:359-361].",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "40":{
+        "Name":"ATSm3",
+        "Description":"ATS autocorrelation descriptor, where the weight equal to the scaled atomic mass [Moreau G. and Broto P.,\u00a0The autocorrelation of a topological structure: A new molecular descriptor, Nouveau Journal de Chimie,\u00a01980, ?:359-362].",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "41":{
+        "Name":"ATSm4",
+        "Description":"ATS autocorrelation descriptor, where the weight equal to the scaled atomic mass [Moreau G. and Broto P.,\u00a0The autocorrelation of a topological structure: A new molecular descriptor, Nouveau Journal de Chimie,\u00a01980, ?:359-363].",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "42":{
+        "Name":"ATSm5",
+        "Description":"ATS autocorrelation descriptor, where the weight equal to the scaled atomic mass [Moreau G. and Broto P.,\u00a0The autocorrelation of a topological structure: A new molecular descriptor, Nouveau Journal de Chimie,\u00a01980, ?:359-364].",
+        "Type":"Moreau-Broto autocorrelation descriptors based on atom mass",
+        "Dimensions":"2D"
+    },
+    "43":{
+        "Name":"SC-3",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "44":{
+        "Name":"SC-4",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "45":{
+        "Name":"SC-5",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "46":{
+        "Name":"SC-6",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "47":{
+        "Name":"VC-3",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "48":{
+        "Name":"VC-4",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "49":{
+        "Name":"VC-5",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "50":{
+        "Name":"VC-6",
+        "Description":"Evaluates chi cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "51":{
+        "Name":"SCH-3",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "52":{
+        "Name":"SCH-4",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "53":{
+        "Name":"SCH-5",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "54":{
+        "Name":"SCH-6",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "55":{
+        "Name":"VCH-3",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "56":{
+        "Name":"VCH-4",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "57":{
+        "Name":"VCH-5",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "58":{
+        "Name":"VCH-6",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "59":{
+        "Name":"SP-0",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "60":{
+        "Name":"SP-1",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "61":{
+        "Name":"SP-2",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "62":{
+        "Name":"SP-3",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "63":{
+        "Name":"SP-4",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "64":{
+        "Name":"SP-5",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "65":{
+        "Name":"SP-6",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "66":{
+        "Name":"SP-7",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "67":{
+        "Name":"VP-8",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "68":{
+        "Name":"VP-9",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "69":{
+        "Name":"VP-10",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "70":{
+        "Name":"VP-11",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "71":{
+        "Name":"VP-12",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "72":{
+        "Name":"VP-13",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "73":{
+        "Name":"VP-14",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "74":{
+        "Name":"VP-15",
+        "Description":"Evaluates chi path descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "75":{
+        "Name":"SPC-4",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "76":{
+        "Name":"SPC-5",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "77":{
+        "Name":"SPC-6",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "78":{
+        "Name":"VPC-4",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "79":{
+        "Name":"VPC-5",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "80":{
+        "Name":"VPC-6",
+        "Description":"Evaluates chi path cluster descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "81":{
+        "Name":"chi0C",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "82":{
+        "Name":"chi1C",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "83":{
+        "Name":"chi0vC",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "84":{
+        "Name":"chi1vC",
+        "Description":"Evaluates chi chain descriptors.",
+        "Type":"Connectivity descriptors",
+        "Dimensions":"2D"
+    },
+    "85":{
+        "Name":"TPSA",
+        "Description":"The polar surface area of a molecule based upon fragments",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "86":{
+        "Name":"LipinksiFailures",
+        "Description":"The number failures of the Lipinski's Rule Of 5.",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "87":{
+        "Name":"XLogP",
+        "Description":"Prediction of logP based on the atom-type method called XLogP.",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "88":{
+        "Name":"apol",
+        "Description":"Sum of the atomic polarizabilities (including implicit hydrogens).",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "89":{
+        "Name":"bpol",
+        "Description":"Sum of the absolute value of the difference between atomic polarizabilities of all bonded atoms in the molecule (including implicit hydrogens) with polarizabilities taken from http:\/\/www.sunysccc.edu\/academic\/mst\/ptable\/p-table2.htm This descriptor assumes 2-centered bonds.",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "90":{
+        "Name":"LogP",
+        "Description":"Calculates the Octanol\/Water partition coefficient (logP) or hydrophobicity.",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "91":{
+        "Name":"MolarRefractivity",
+        "Description":"Calculates the molar refractivity (MR).",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "92":{
+        "Name":"MolecularWeight",
+        "Description":"Calculates the molecular weight.",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "93":{
+        "Name":"PolarSurfaceArea",
+        "Description":"Calculates the polar surface area (PSA).",
+        "Type":"Molecular property descriptors",
+        "Dimensions":"2D"
+    },
+    "94":{
+        "Name":"ECCEN",
+        "Description":"A topological descriptor combining distance and adjacency information.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "95":{
+        "Name":"GRAV-1",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "96":{
+        "Name":"GRAV-2",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "97":{
+        "Name":"GRAV-3",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "98":{
+        "Name":"GRAV-4",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "99":{
+        "Name":"GRAV-5",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "100":{
+        "Name":"GRAV-6",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "101":{
+        "Name":"GRAVH-1",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "102":{
+        "Name":"GRAVH-2",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "103":{
+        "Name":"GRAVH-3",
+        "Description":"Descriptor characterizing the mass distribution of the molecule.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "104":{
+        "Name":"WPATH",
+        "Description":"This descriptor calculates the Wiener numbers.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "105":{
+        "Name":"WPOL",
+        "Description":"This descriptor calculates the Wiener numbers.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "106":{
+        "Name":"WTPT-1",
+        "Description":"Evaluates the weighted path descriptors.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "107":{
+        "Name":"WTPT-2",
+        "Description":"Evaluates the weighted path descriptors.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "108":{
+        "Name":"WTPT-3",
+        "Description":"Evaluates the weighted path descriptors.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "109":{
+        "Name":"WTPT-4",
+        "Description":"Evaluates the weighted path descriptors.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "110":{
+        "Name":"WTPT-5",
+        "Description":"Evaluates the weighted path descriptors.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "111":{
+        "Name":"Zagreb",
+        "Description":"Zagreb index: the sum of the squares of atom degree over all heavy atoms i.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "112":{
+        "Name":"GlobalTopologicalChargeIndex",
+        "Description":"Calculates the Topological Charge Index.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "113":{
+        "Name":"GraphShapeCoefficient",
+        "Description":"Calculates the graph shape coefficient.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "114":{
+        "Name":"KierShape1",
+        "Description":"Calculates the Kier Shape for paths with length one.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "115":{
+        "Name":"KierShape2",
+        "Description":"Calculates the Kier Shape for paths with length two.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "116":{
+        "Name":"KierShape3",
+        "Description":"Calculates the Kier Shape for paths with length three.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "117":{
+        "Name":"TopologicalDiameter",
+        "Description":"Calculates the topological diameter.",
+        "Type":"Topological descriptors",
+        "Dimensions":"2D"
+    },
+    "118":{
+        "Name":"PPSA-1",
+        "Description":"Partial positively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "119":{
+        "Name":"PPSA-2",
+        "Description":"Total charge weighted partial positively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "120":{
+        "Name":"PPSA-3",
+        "Description":"Atomic charge weighted partial positively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "121":{
+        "Name":"PNSA-1",
+        "Description":"Partial negatively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "122":{
+        "Name":"PNSA-2",
+        "Description":"Total charge weighted partial negatively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "123":{
+        "Name":"PNSA-3",
+        "Description":"Atomic charge weighted partial negatively charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "124":{
+        "Name":"DPSA-1",
+        "Description":"Difference between partial positively and negatively charged surface areas",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "125":{
+        "Name":"DPSA-2",
+        "Description":"Difference between total charge weighted partial positive and negative surface areas",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "126":{
+        "Name":"DPSA-3",
+        "Description":"Difference between atomic charge weighted partial positive and negative surface areas",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "127":{
+        "Name":"FPSA-1",
+        "Description":"Fractional partial positive surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "128":{
+        "Name":"FPSA-2",
+        "Description":"Fractional total charge weighted partial positive surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "129":{
+        "Name":"FPSA-3",
+        "Description":"Fractional atomic charge weighted partial positive surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "130":{
+        "Name":"FNSA-1",
+        "Description":"Fractional partial negative surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "131":{
+        "Name":"FNSA-2",
+        "Description":"Fractional total charge weighted partial negative surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "132":{
+        "Name":"FNSA-3",
+        "Description":"Fractional atomic charge weighted partial negative surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "133":{
+        "Name":"WPSA-1",
+        "Description":"Surface weighted charged partial positive charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "134":{
+        "Name":"WPSA-2",
+        "Description":"Surface weighted charged partial positive charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "135":{
+        "Name":"WPSA-3",
+        "Description":"Surface weighted charged partial positive charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "136":{
+        "Name":"WNSA-1",
+        "Description":"Surface weighted charged partial negative charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "137":{
+        "Name":"WNSA-2",
+        "Description":"Surface weighted charged partial negative charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "138":{
+        "Name":"WNSA-3",
+        "Description":"Surface weighted charged partial negative charged surface area",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "139":{
+        "Name":"RPCG",
+        "Description":"Relative positive charge",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "140":{
+        "Name":"RNCG",
+        "Description":"Relative negative charge",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "141":{
+        "Name":"RHSA",
+        "Description":"Charged Partial Surface Area (CPSA) descriptors.",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "142":{
+        "Name":"RNCS",
+        "Description":"Charged Partial Surface Area (CPSA) descriptors.",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "143":{
+        "Name":"RPCS",
+        "Description":"Charged Partial Surface Area (CPSA) descriptors.",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "144":{
+        "Name":"RPSA",
+        "Description":"Charged Partial Surface Area (CPSA) descriptors.",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "145":{
+        "Name":"THSA",
+        "Description":"Charged Partial Surface Area (CPSA) descriptors.",
+        "Type":"CPSA descriptors",
+        "Dimensions":"3D"
+    },
+    "146":{
+        "Name":"LOBMAX",
+        "Description":"Evaluates length over breadth descriptors.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "147":{
+        "Name":"LOBMIN",
+        "Description":"Evaluates length over breadth descriptors.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "148":{
+        "Name":"MOMI-R",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "149":{
+        "Name":"MOMI-X",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "150":{
+        "Name":"MOMI-Y",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "151":{
+        "Name":"MOMI-Z",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "152":{
+        "Name":"MOMI-XY",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "153":{
+        "Name":"MOMI-XZ",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "154":{
+        "Name":"MOMI-YZ",
+        "Description":"A descriptor that calculates the moment of inertia and radius of gyration.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "155":{
+        "Name":"GeometricalDiameter",
+        "Description":"Calculates the geometrical diameter.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "156":{
+        "Name":"GeometricalRadius",
+        "Description":"Calculates the geometrical radius.",
+        "Type":"Geometrical descriptors",
+        "Dimensions":"3D"
+    },
+    "157":{
+        "Name":"WA.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-380].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "158":{
+        "Name":"WD.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-381].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "159":{
+        "Name":"WG.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-382].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "160":{
+        "Name":"WK.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-383].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "161":{
+        "Name":"WT.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-384].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "162":{
+        "Name":"WV.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-385].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "163":{
+        "Name":"Weta1.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-386].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "164":{
+        "Name":"Weta2.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-387].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "165":{
+        "Name":"Weta3.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-388].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "166":{
+        "Name":"Wgamma1.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-389].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "167":{
+        "Name":"Wgamma2.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-390].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "168":{
+        "Name":"Wgamma3.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-391].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "169":{
+        "Name":"Wlambda1.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-392].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "170":{
+        "Name":"Wlambda2.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-393].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "171":{
+        "Name":"Wlambda3.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-394].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "172":{
+        "Name":"Wnu1.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-395].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    },
+    "173":{
+        "Name":"Wnu2.unity",
+        "Description":"Holistic descriptors described by Todeschini et al [Todeschini, R. and Gramatica, P.,\u00a0New 3D Molecular Descriptors: The WHIM theory and QAR Applications, Persepectives in Drug Discovery and Design,\u00a01998, ?:355-396].",
+        "Type":"WHIM descriptors",
+        "Dimensions":"3D"
+    }
+}

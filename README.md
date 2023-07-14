@@ -29,8 +29,6 @@ smiles_list = [
   "CCC(=O)O[C@@H]1CC(=O)O[C@@H](C/C=C/C=C/[C@@H]([C@@H](C[C@@H]([C@@H]([C@H]1OC)O[C@H]2[C@@H]([C@H]([C@@H]([C@H](O2)C)O[C@H]3C[C@@]([C@H]([C@@H](O3)C)OC(=O)CC)(C)O)N(C)C)O)CC=O)C)O)C",
   # selenofolate
   "C1=CC(=CC=C1C(=O)NC(CCC(=O)OCC[Se]C#N)C(=O)O)NCC2=CN=C3C(=N2)C(=O)NC(=N3)N",
-  # cisplatin
-  "N.N.Cl[Pt]Cl"
 ]
 mols = [Chem.AddHs(Chem.MolFromSmiles(smiles)) for smiles in smiles_list]
 for mol in mols:
@@ -40,13 +38,21 @@ bluedesc = BlueDesc()
 print(bluedesc.calculate(mols))
 ```
 
-The above calculates 174 molecular descriptors (33 1D, 85 2D and 56 3D).<br/>
-:warning: Molecules are required to have conformers for descriptors to be calculated.<br/>
+The above calculates 118 molecular descriptors (33 1D and 85 2D).<br/>
 :warning: BlueDesc skips molecules it cannot parse internally, a warning is given when that is the case.
 The following command is recommended, should this occur, to prevent the unalignment of input and output indices.
 
 ```python
 bluedesc.calculate(mols, chunksize=1, njobs=-1)
+```
+
+The additional 56 three-dimensional (3D) descriptors may be computed like so: 
+:warning: Molecules are required to have conformers for 3D descriptors to be calculated.<br/>
+
+```python
+bluedesc = BlueDesc(ignore_3D=False)
+print(bluedesc.calculate(mols))
+
 ```
 
 ## Documentation
