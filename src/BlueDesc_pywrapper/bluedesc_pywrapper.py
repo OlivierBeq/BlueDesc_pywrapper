@@ -56,23 +56,28 @@ class BlueDesc:
         if njobs < 0:
             njobs = os.cpu_count() - njobs + 1
         # Parallelize should need be
-        if njobs > 1:
+        if njobs != 1:
+            if njobs < 0:
+                njobs += multiprocessing.cpu_count() + 1
             with BoundedProcessPoolExecutor(max_workers=njobs) as worker:
                 futures = [worker.submit(self._multiproc_calculate, list(chunk))
                            for chunk in more_itertools.batched(mols, chunksize)
                            ]
-            return pd.concat([future.result()
-                              for future in futures]
-                             ).reset_index(drop=True).fillna(0).astype(int)
+            data = (pd.concat([future.result()
+                               for future in futures]
+                              )
+                    .reset_index(drop=True))
         # Single process
-        return self._calculate(list(mols))
+        else:
+            data = self._calculate(list(mols))
+        return data
+
 
     def _show_banner(self):
         """Print info message for citing."""
         print("""BlueDesc is a simple command-line tool converts an MDL SD file
 into ARFF and LIBSVM format for machine learning and data mining purposes using
 CDK and JOELib2. It computes 174 descriptors taken from both JOELib2 and the CDK.
-It only works with 3D structures.
 
 ###################################
 
@@ -192,7 +197,6 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                                     columns=results.columns)
                        )
         results = (results.apply(pd.to_numeric, errors='coerce', axis=1)
-                          .fillna(0)
                           .convert_dtypes()
                    )
         return results
