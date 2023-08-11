@@ -43,10 +43,10 @@ class BlueDesc:
 
     def calculate(self, mols: Iterable[Chem.Mol], show_banner: bool = True, njobs: int = 1,
                   chunksize: Optional[int] = 1000) -> pd.DataFrame:
-        """Calculate molecular fingerprints.
+        """Calculate molecular descriptors.
 
-        :param mols: RDKit molecules for which fingerprints should be calculated
-        :param show_banner: If True, show notice on fingerprint usage
+        :param mols: RDKit molecules for which descriptors should be calculated
+        :param show_banner: If True, show notice on descriptor usage
         :param njobs: number of concurrent processes
         :param chunksize: number of molecules to be processed by a process; ignored if njobs is 1
         :return: a pandas DataFrame containing all BlueDesc descriptor values
@@ -204,7 +204,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
     def _multiproc_calculate(self, mols: List[Chem.Mol], nbits: int = 1024) -> pd.DataFrame:
         """Calculate BlueDesc descriptors in thread-safe manner.
 
-        :param mols: RDKit molecules for which BlueDesc fingerprints should be calculated
+        :param mols: RDKit molecules for which BlueDesc descriptors should be calculated
         :return: a pandas DataFrame containing all BlueDesc desciptor values
         """
         # Copy self instance to make thread safe

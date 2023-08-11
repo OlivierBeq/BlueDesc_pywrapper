@@ -61,7 +61,7 @@ print(bluedesc.calculate(mols))
 def calculate(mols, show_banner=True, njobs=1, chunksize=1000):
 ```
 
-Default method to calculate BlueDesc fingerprints.
+Default method to calculate BlueDesc descriptors.
 
 Parameters:
 
