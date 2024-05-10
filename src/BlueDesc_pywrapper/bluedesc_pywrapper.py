@@ -133,7 +133,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
             raise e from None
         # 3) Create command
         java_path = install_java()
-        command = f"{java_path} -jar {self._jarfile} -f {self._tmp_sd} -l \'?\'"
+        command = f"{java_path} -jar {self._jarfile} -f {self._tmp_sd} -l ?"
         return command
 
     def _cleanup(self) -> None:
@@ -148,19 +148,32 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
 
         :param command: The command to be run.
         """
-        process = subprocess.run(command.split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        process = subprocess.run(command.split(), capture_output=True, text=True)
         if process.returncode == 0:
             self._out = f'{self._tmp_sd}.oddescriptors.arff'
             try:
                 values = arff.loadarff(self._out)
                 values = (pd.DataFrame(values[0])
-                          .drop("'?'", axis=1)
+                          .drop("?", axis=1)
                           .rename(columns=lambda x: x.replace('joelib2.feature.types.count.', ''))
                           .rename(columns=lambda x: x.replace('joelib2.feature.types.', ''))
                           )
-                if values.shape[0] != self.n:
-                    warnings.warn('Some molecules were skipped by BlueDesc')
-            except:
+                if values.shape[0] != (self.n - self._skipped):
+                    # Create an empty array
+                    values_ = pd.DataFrame(np.zeros(((self.n - self._skipped), values.shape[1])),
+                                           columns=values.columns)
+                    # Identify skipped molecules
+                    start = process.stdout.find('Sequence of skipped instances:')
+                    skipped = pd.Series(process.stdout[start + 30:].split()).astype(int) - 1
+                    for i in range((self.n - self._skipped)):
+                        if i in skipped.tolist():
+                            values_.iloc[i, :] = np.NaN
+                        else:
+                            values_.iloc[i, :] = values.iloc[0, :]
+                            values = values.iloc[1:, :]
+                    values = values_
+            except Exception as e:
+                raise e
                 details = self.get_details()
                 values = np.zeros((self.n, details.shape[0]))
                 with open(os.path.abspath(os.path.join(__file__, os.pardir, 'dtypes.json'))) as fh:
@@ -196,8 +209,8 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                                               axis=0),
                                     columns=results.columns)
                        )
-        results = (results.apply(pd.to_numeric, errors='coerce', axis=1)
-                          .convert_dtypes()
+        results = (results.apply(pd.to_numeric, errors='ignore', downcast='integer', axis=0)
+                          .apply(pd.to_numeric, errors='ignore', downcast='float', axis=0)
                    )
         return results
 
