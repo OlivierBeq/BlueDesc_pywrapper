@@ -158,14 +158,14 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                           .rename(columns=lambda x: x.replace('joelib2.feature.types.count.', ''))
                           .rename(columns=lambda x: x.replace('joelib2.feature.types.', ''))
                           )
-                if values.shape[0] != (self.n - self._skipped):
+                if values.shape[0] != (self.n - len(self._skipped)):
                     # Create an empty array
-                    values_ = pd.DataFrame(np.zeros(((self.n - self._skipped), values.shape[1])),
+                    values_ = pd.DataFrame(np.zeros(((self.n - len(self._skipped)), values.shape[1])),
                                            columns=values.columns)
                     # Identify skipped molecules
                     start = process.stdout.find('Sequence of skipped instances:')
                     skipped = pd.Series(process.stdout[start + 30:].split()).astype(int) - 1
-                    for i in range((self.n - self._skipped)):
+                    for i in range((self.n - len(self._skipped))):
                         if i in skipped.tolist():
                             values_.iloc[i, :] = np.NaN
                         else:
