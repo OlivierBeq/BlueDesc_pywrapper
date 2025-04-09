@@ -209,6 +209,13 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                                               axis=0),
                                     columns=results.columns)
                    )
+        # Cast to numerical values
+        for col in results.columns:
+            try:
+                results[col] = pd.to_numeric(results[col], downcast='integer')
+                results[col] = pd.to_numeric(results[col], downcast='float')
+            except:
+                pass
         return results
 
     def _multiproc_calculate(self, mols: List[Chem.Mol], nbits: int = 1024) -> pd.DataFrame:
