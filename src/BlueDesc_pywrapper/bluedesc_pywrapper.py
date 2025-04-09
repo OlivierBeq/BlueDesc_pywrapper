@@ -167,7 +167,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
                     skipped = pd.Series(process.stdout[start + 30:].split()).astype(int) - 1
                     for i in range((self.n - len(self._skipped))):
                         if i in skipped.tolist():
-                            values_.iloc[i, :] = np.NaN
+                            values_.iloc[i, :] = np.nan
                         else:
                             values_.iloc[i, :] = values.iloc[0, :]
                             values = values.iloc[1:, :]
@@ -205,12 +205,9 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
         # Insert lines of skipped molecules
         if len(self._skipped):
             results = (pd.DataFrame(np.insert(results.values, self._skipped,
-                                              values=[np.NaN] * len(results.columns),
+                                              values=[np.nan] * len(results.columns),
                                               axis=0),
                                     columns=results.columns)
-                       )
-        results = (results.apply(pd.to_numeric, errors='ignore', downcast='integer', axis=0)
-                          .apply(pd.to_numeric, errors='ignore', downcast='float', axis=0)
                    )
         return results
 
