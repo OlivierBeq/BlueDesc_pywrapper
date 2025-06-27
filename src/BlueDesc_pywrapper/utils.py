@@ -43,11 +43,12 @@ def make_temp_jre() -> Tuple[str, str]:
     return outdir, path
 
 
-def get_jre_in_dir(dir: str):
+def get_jre_in_dir(dir: str, version: int):
     """Recursively search the directory to find a JRE."""
-    path = glob.glob(os.path.join(dir, '**', 'server',
-                                  'jvm.dll' if sys.platform == "win32" else 'libjvm.so'
-                                  ), recursive=True)
+    paths = glob.glob(os.path.join(dir, '**', 'server',
+                                   'jvm.dll' if sys.platform == "win32" else 'libjvm.so'
+                                   ), recursive=True)
+    path = [path for path in paths if f'jre-{version}' in path]
     if len(path):
         return path[0]
     return None
@@ -55,19 +56,20 @@ def get_jre_in_dir(dir: str):
 
 def install_java(version: int = 11):
     """Install a Java Runtime Environment."""
-    path = get_java_in_dir(_JRE_DIR)
+    path = get_java_in_dir(_JRE_DIR, version)
     if path is None:
         # Could not find JRE, install it
         _ = _jre_install(version, jre=True)
-        path = get_java_in_dir(_JRE_DIR)
+        path = get_java_in_dir(_JRE_DIR, version)
     return path
 
 
-def get_java_in_dir(dir: str):
+def get_java_in_dir(dir: str, version: int):
     """Recursively search the directory to find a JRE."""
-    path = glob.glob(os.path.join(dir, '**', 'bin',
-                                  'java.exe' if sys.platform == "win32" else 'java'
-                                  ), recursive=True)
+    paths = glob.glob(os.path.join(dir, '**', 'bin',
+                                   'java.exe' if sys.platform == "win32" else 'java'
+                                   ), recursive=True)
+    path = [path for path in paths if f'jdk-{version}' in path]
     if len(path):
         return os.path.abspath(path[0])
     return None
