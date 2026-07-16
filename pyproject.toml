@@ -1,0 +1,86 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "BlueDesc_pywrapper"
+dynamic = ["version"]
+description = "Python wrapper for BlueDesc molecular descriptors"
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Olivier J. M. Béquignon", email = "olivier.bequignon.maintainer@gmail.com" },
+]
+maintainers = [
+    { name = "Olivier J. M. Béquignon", email = "olivier.bequignon.maintainer@gmail.com" },
+]
+keywords = [
+    "BlueDesc",
+    "molecular descriptors",
+    "cheminformatics",
+    "toxicoinformatics",
+    "QSAR",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "more-itertools",
+    "numpy>=2.0.0",
+    "pandas",
+    "scipy",
+    "rdkit",
+    "install-jdk>=1.1.0",
+    "filelock",
+    "BlueDesc",
+]
+
+[project.urls]
+Homepage = "https://github.com/OlivierBeq/BlueDesc_pywrapper"
+
+[project.optional-dependencies]
+docs = [
+    "sphinx",
+    "sphinx-rtd-theme",
+    "sphinx-autodoc-typehints",
+]
+testing = [
+    "pytest",
+    "pytest-cov",
+    "pytest-xdist",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "py.typed"]
+
+[tool.setuptools.dynamic]
+version = { attr = "BlueDesc_pywrapper.__version__" }
+
+[tool.ruff]
+line-length = 120
+src = ["src"]
+exclude = ["build", "dist", "*.egg-info"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["BlueDesc_pywrapper"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
