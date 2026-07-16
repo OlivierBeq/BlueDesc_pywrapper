@@ -1,7 +1,9 @@
-# -*- coding: utf-8
-
 """Wrapper for BlueDesc molecular descriptors"""
 
 from .bluedesc_pywrapper import BlueDesc
 
-__version__ = "0.0.6post1"
+__all__ = [
+    "BlueDesc",
+]
+
+__version__ = "1.0.0"
