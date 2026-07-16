@@ -23,7 +23,7 @@ from .utils import install_java, mktempfile, needsHs
 logger = logging.getLogger(__name__)
 
 
-def _make_chunks(mols: list, njobs: int, chunksize: int | None) -> list[list]:
+def _make_chunks(mols: list[Chem.Mol], njobs: int, chunksize: int | None) -> list[list[Chem.Mol]]:
     """Split molecules into chunks to be dispatched to worker processes.
 
     If chunksize is None, mols are split into exactly min(njobs, len(mols))
@@ -31,7 +31,7 @@ def _make_chunks(mols: list, njobs: int, chunksize: int | None) -> list[list]:
     is guaranteed to receive work. If chunksize is given, it is authoritative
     and mols are batched into fixed-size chunks (may leave some workers idle).
 
-    :param mols: molecules (or any list) to split into chunks
+    :param mols: molecules to split into chunks
     :param njobs: number of concurrent workers that will consume the chunks
     :param chunksize: fixed size of each chunk, or None to auto-balance across njobs
     :return: a list of chunks
@@ -62,10 +62,19 @@ class BlueDesc:
     # Path to the descriptor dtypes, cast onto results in _calculate
     _dtypes_file = os.path.abspath(os.path.join(__file__, os.pardir, 'dtypes.json'))
 
-    def __init__(self, ignore_3D: bool = True):
+    # Instance attributes set outside __init__ (per-calculation state, populated by
+    # _prepare_command/_run_command rather than at construction time).
+    _java_path: str
+    _tmp_sd: str
+    _out: str
+    _skipped: list[int]
+    n: int
+
+    def __init__(self, ignore_3D: bool = True) -> None:
         """Instantiate a wrapper to calculate BlueDesc molecular descriptors.
 
         :param ignore_3D: whether to skip the calculation of 3D molecular descriptors
+        :raises OSError: if the required BlueDesc JAR file is not present
         """
         self.include_3D = not ignore_3D
         # Ensure the jar file exists
@@ -86,6 +95,8 @@ class BlueDesc:
             molecules are auto-balanced across njobs workers so every worker gets work; ignored
             if njobs is 1.
         :return: a pandas DataFrame containing all BlueDesc descriptor values
+        :raises ValueError: if njobs is not a strictly positive integer, or exceeds the number
+            of available CPU cores
         """
         if njobs < 1:
             raise ValueError('njobs must be a strictly positive integer.')
@@ -111,7 +122,7 @@ class BlueDesc:
         # Single process
         return self._calculate(mols)
 
-    def _show_banner(self):
+    def _show_banner(self) -> None:
         """Log info message for citing."""
         logger.info("""BlueDesc is a simple command-line tool converts an MDL SD file
 into ARFF and LIBSVM format for machine learning and data mining purposes using
@@ -131,10 +142,16 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
 
         :param mols: molecules to obtain molecular descriptors of
         :return: the command, as an argument list, to run.
+        :raises ValueError: if a molecule has more than 999 atoms, or lacks a 3D conformer
+            while 3D descriptors were requested
+        :raises RuntimeError: if no matching Java executable could be installed or located
         """
         # 1) Ensure JRE is accessible
         with self.lock:
-            self._java_path = install_java()
+            java_path = install_java()
+        if java_path is None:
+            raise RuntimeError('Could not install or locate a matching Java executable.')
+        self._java_path = java_path
         # 2) Create temp SD file
         self._tmp_sd = mktempfile('molecules_v2k.sd')
         self._skipped = []
@@ -206,6 +223,8 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
         :param command: the command, as an argument list, to be run
         :return: a pandas DataFrame containing raw descriptor values, still aligned to the
             molecules actually written to the SD file (i.e. excluding self._skipped entries)
+        :raises RuntimeError: if the BlueDesc subprocess exits with a non-zero return code, or
+            produces no usable output (e.g. every molecule was skipped internally)
         """
         process = subprocess.run(command, capture_output=True, text=True)
         if process.returncode != 0:
@@ -327,6 +346,7 @@ http://www.ra.cs.uni-tuebingen.de/software/bluedesc/welcome_e.html.
             If None, returns details about all descriptors.
         :return: a pandas DataFrame detailing the name, description, type and dimensionality
             of the requested descriptor(s)
+        :raises ValueError: if desc_name is not a valid BlueDesc descriptor name
         """
         details = pd.read_json(os.path.abspath(os.path.join(__file__, os.pardir, 'descs.json')), orient='index')
         if desc_name is not None:

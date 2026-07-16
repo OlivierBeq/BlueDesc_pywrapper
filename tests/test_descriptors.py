@@ -75,6 +75,12 @@ class TestDescriptors(unittest.TestCase):
 class TestBlueDescValidation(unittest.TestCase):
     """Tests for input validation and error paths."""
 
+    def test_unresolvable_java_raises_runtimeerror(self):
+        blu = BlueDesc()
+        with patch("BlueDesc_pywrapper.bluedesc_pywrapper.install_java", return_value=None):
+            with self.assertRaises(RuntimeError):
+                blu._prepare_command([MOLECULES["erlotinib"]])
+
     def test_missing_jar_raises_oserror(self):
         with patch.object(BlueDesc, "_jarfile", "/nonexistent/path/to.jar"):
             with self.assertRaises(OSError):
